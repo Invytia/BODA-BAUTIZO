@@ -12,7 +12,7 @@
 :root{
   --vino:#6D1A2B; --vino-d:#3E0D18; --olive:#6B6F3A; --olive-l:#9A9F62;
   --cream:#FBF8F3; --white:#fff; --ink:#2A1A1D; --text:#3a2f30;
-  --gold:#C9A961; --gold-l:#F0DFA8;
+  --gold:#C9A961; --gold-l:#F0DFA8; --gris:#8A8D91;
   --f-title:'Playfair Display',serif; --f-script:'Great Vibes',cursive; --f-body:'Lora',serif; --f-sans:'Montserrat',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -70,7 +70,7 @@ body{background:var(--cream);color:var(--text);font-family:var(--f-body);overflo
 .scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);color:var(--gold);font-size:1.3rem;animation:float 2s infinite;z-index:2}
 
 /* ---------- Estructura ---------- */
-.wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1200px;margin:0 auto;padding:16px 10px}
+.wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1200px;margin:0 auto;padding:16px 10px;align-items:start}
 .col{display:flex;flex-direction:column;align-items:center;text-align:center;padding:50px 28px;background:linear-gradient(180deg,#fff,#fbf6ee);box-shadow:0 15px 40px rgba(62,13,24,.08);border-top:3px solid var(--gold);position:relative;overflow:hidden}
 h2,h3{font-family:var(--f-title);font-weight:400;color:var(--vino)}
 h2{font-size:2rem;margin-bottom:4px}
@@ -85,6 +85,10 @@ h2{font-size:2rem;margin-bottom:4px}
 .script{font-family:var(--f-script);color:var(--gold);font-size:2.2rem;line-height:1.2}
 .welcome{font-style:italic;line-height:1.7;font-size:.97rem;margin:14px 0 24px}
 .pg{margin-bottom:22px}.pg h4{font:600 .75rem var(--f-sans);letter-spacing:2px;color:var(--olive);text-transform:uppercase;margin-bottom:7px}.pg p{font-style:italic;line-height:1.6}
+
+/* Fotografías (se muestran completas, sin recortes) */
+.ph{width:100%;margin:12px 0 30px;padding:8px;background:#fff;border:1px solid rgba(201,169,97,.55);box-shadow:0 12px 30px rgba(62,13,24,.14);position:relative}
+.ph img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
 
 /* Calendario */
 .sd{font:clamp(1.9rem,8vw,3.2rem) var(--f-title);white-space:nowrap;margin:6px 0}
@@ -119,23 +123,27 @@ h2{font-size:2rem;margin-bottom:4px}
 .dress{width:calc(100% + 56px);margin:0 -28px 36px;padding:50px 28px;color:#fff;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--vino-d),var(--vino) 45%,#4a1220 70%,var(--vino-d));box-shadow:inset 0 0 50px rgba(0,0,0,.5)}
 .dress .eyebrow{color:var(--gold-l);letter-spacing:4px}
 .dress h2{color:#fff;font-size:2.6rem;margin:12px 0 8px;line-height:1.1}
-.swatches{display:flex;justify-content:center;gap:14px;margin:22px 0 6px}
-.sw{width:42px;height:42px;border-radius:50%;border:2px solid var(--gold);box-shadow:0 0 14px rgba(201,169,97,.5)}
-.reserved{margin-top:30px;padding-top:26px;border-top:1px solid rgba(240,223,168,.35);display:flex;flex-direction:column;align-items:center;gap:6px}
-.rdot{width:62px;height:62px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--olive-l),var(--olive));border:2px solid var(--gold-l);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem;box-shadow:0 0 0 6px rgba(240,223,168,.12),0 0 22px rgba(154,159,98,.8);animation:float 5s ease-in-out infinite}
-.rtitle{font:2.2rem/1.1 var(--f-script);color:var(--gold-l);margin-top:8px}
-.rtxt{font:italic 1rem/1.6 var(--f-body);color:#f5ead0;max-width:260px}
+.dress-note{font:italic .95rem/1.6 var(--f-body);margin-top:14px;color:#f5ead0}
+.dress-img{width:100%;margin:26px 0 4px;padding:8px;background:#fff;border:1px solid var(--gold);box-shadow:0 10px 28px rgba(0,0,0,.45),0 0 22px rgba(201,169,97,.35)}
+.dress-img img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
+.reserved{margin-top:30px;padding-top:26px;border-top:1px solid rgba(240,223,168,.35);display:flex;flex-direction:column;align-items:center;gap:18px;width:100%}
+.rtitle{font:2.2rem/1.1 var(--f-script);color:var(--gold-l)}
+.ritem{display:flex;align-items:center;gap:16px;width:100%;max-width:280px;text-align:left}
+.rdot{width:46px;height:46px;border-radius:50%;border:2px solid var(--gold-l);box-shadow:0 0 0 5px rgba(240,223,168,.12),0 0 18px rgba(240,223,168,.45);flex-shrink:0}
+.rdot.o{background:radial-gradient(circle at 30% 30%,var(--olive-l),var(--olive))}
+.rdot.b{background:#fff}
+.rdot.g{background:radial-gradient(circle at 30% 30%,#b3b5b8,var(--gris))}
+.rtxt{font:italic 1rem/1.4 var(--f-body);color:#f5ead0}
 .rtxt b{font-style:normal;color:#fff;letter-spacing:1px}
 
 /* Formularios */
-.fbox{width:100%;background:#fff;padding:36px 26px;border:1px solid rgba(201,169,97,.4);box-shadow:0 10px 30px rgba(0,0,0,.04);margin-top:26px}
+.fbox{width:100%;background:#fff;padding:36px 26px;border:1px solid rgba(201,169,97,.4);box-shadow:0 10px 30px rgba(0,0,0,.04);margin-top:26px;position:relative;overflow:hidden}
 .fg{margin-bottom:22px;text-align:left}
 .fg label{display:block;font:500 .72rem var(--f-sans);letter-spacing:2px;text-transform:uppercase;color:var(--vino);margin-bottom:6px}
 .fg input,.fg select,.fg textarea{width:100%;padding:10px 0;background:transparent;border:none;border-bottom:1px solid #ddd;font:1rem var(--f-body);color:var(--text);outline:none;transition:.3s;border-radius:0}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-bottom-color:var(--gold);box-shadow:0 8px 12px -10px var(--gold)}
 #pase{display:none;padding-bottom:18px;border-bottom:1px dashed rgba(201,169,97,.6);margin-bottom:22px}
 .qr{width:150px;height:150px;margin:22px 0 6px;border:2px solid var(--gold);padding:5px;background:#fff}
-.spot{width:100%;margin-top:14px}.spot iframe{width:100%;border:0;border-radius:12px}
 footer{text-align:center;padding:40px 20px;border-top:1px solid rgba(201,169,97,.4);margin-top:30px}
 footer p{font:500 .6rem var(--f-sans);letter-spacing:5px;color:var(--vino)}
 
@@ -207,12 +215,18 @@ footer p{font:500 .6rem var(--f-sans);letter-spacing:5px;color:var(--vino)}
 <div class="col">
   <p class="eyebrow rv up">Con inmensa alegría</p>
   <p class="welcome rv blur" style="transition-delay:.15s">"Dos celebraciones, un mismo corazón lleno de gratitud. Queremos compartir contigo el día en que uniremos nuestras vidas en matrimonio y presentaremos a nuestra hija Regina ante Dios.<br><br>Será un honor contar con tu presencia en este día tan especial."</p>
+
+  <div class="ph rv zoom"><img src="assets/1.jpg" alt="Evelyn, Elihud y Regina" loading="lazy"></div>
+
   <div class="divider rv up"><i class="fa-solid fa-heart"></i></div>
 
   <p class="script rv zoom" style="margin-bottom:22px">Con la bendición de nuestros padres</p>
   <div class="pg rv up"><h4>Padres de la Novia</h4><p>Raúl Guerra<br>Estela Tovar</p></div>
   <div class="pg rv up" style="transition-delay:.1s"><h4>Padres del Novio</h4><p>Silvia Bello<br>Leobardo Espiritu</p></div>
-  <div class="pg rv up" style="transition-delay:.2s"><h4>Padrinos</h4><p>Luz María López<br>José Ramírez</p></div>
+  <div class="pg rv up" style="transition-delay:.2s"><h4>Padrinos de Boda</h4><p>Luz María López<br>José Ramírez</p></div>
+  <div class="pg rv up" style="transition-delay:.3s"><h4>Madrina de Bautizo</h4><p>Lucero Guerra</p></div>
+
+  <div class="ph rv zoom"><img src="assets/2.jpg" alt="Evelyn y Elihud" loading="lazy"></div>
 
   <div class="divider rv up"><i class="fa-solid fa-star"></i></div>
   <p class="eyebrow rv up">Reserva la fecha</p>
@@ -223,6 +237,8 @@ footer p{font:500 .6rem var(--f-sans);letter-spacing:5px;color:var(--vino)}
     <div class="cal-g cal-h"><div>DOM</div><div>LUN</div><div>MAR</div><div>MIE</div><div>JUE</div><div>VIE</div><div>SAB</div></div>
     <div class="cal-g" id="calGrid"></div>
   </div>
+
+  <div class="ph rv zoom"><img src="assets/3.jpg" alt="Evelyn y Elihud" loading="lazy"></div>
 
   <div class="timer rv up">
     <p class="script" style="font-size:1.8rem;margin-bottom:12px">Faltan</p>
@@ -245,6 +261,8 @@ footer p{font:500 .6rem var(--f-sans);letter-spacing:5px;color:var(--vino)}
     <a class="btn" target="_blank" href="https://maps.app.goo.gl/qEwNGZ7hFXCaNfH29?g_st=ic"><i class="fa-solid fa-location-dot"></i> Ubicación exacta</a>
   </div>
 
+  <div class="ph rv zoom"><img src="assets/4.jpg" alt="Regina" loading="lazy"></div>
+
   <h2 class="shine rv up" style="margin-top:10px">RECEPCIÓN</h2>
   <div class="divider rv up"><i class="fa-solid fa-champagne-glasses"></i></div>
   <div class="card shine-card rv up">
@@ -256,9 +274,13 @@ footer p{font:500 .6rem var(--f-sans);letter-spacing:5px;color:var(--vino)}
     <a class="btn" target="_blank" href="https://maps.app.goo.gl/fD1fMe1G9MQoUV9L6?g_st=ic"><i class="fa-solid fa-location-dot"></i> Ubicación exacta</a>
   </div>
 
+  <div class="ph rv zoom"><img src="assets/5.jpg" alt="Evelyn, Elihud y Regina" loading="lazy"></div>
+
   <h2 class="shine rv up" style="margin-top:10px">ITINERARIO</h2>
   <div class="divider rv up"><i class="fa-regular fa-clock"></i></div>
   <div class="tl" id="itinerario"></div>
+
+  <div class="ph rv zoom"><img src="assets/6.jpg" alt="Evelyn y Elihud" loading="lazy"></div>
 
   <h2 class="shine rv up" style="margin-top:10px">HOSPEDAJE</h2>
   <div class="divider rv up"><i class="fa-solid fa-bed"></i></div>
@@ -272,31 +294,40 @@ footer p{font:500 .6rem var(--f-sans);letter-spacing:5px;color:var(--vino)}
     <p class="eyebrow">Código de vestimenta</p>
     <h2 class="shine-l">Formal</h2>
     <p class="eyebrow" style="letter-spacing:3px;color:#fff">Etiqueta</p>
-    <div class="swatches"><div class="sw" style="background:#fff"></div><div class="sw" style="background:var(--vino)"></div><div class="sw" style="background:var(--olive)"></div></div>
-    <p style="font:italic .95rem var(--f-body);margin-top:14px;color:#f5ead0">Nuestra paleta: blanco, vino y verde olivo</p>
-    <div class="reserved"><div class="rdot"><i class="fa-solid fa-leaf"></i></div><p class="rtitle">Color reservado</p><p class="rtxt"><b>Verde olivo</b><br>exclusivo para nuestras damas de honor</p></div>
+    <p class="dress-note">Ven vestido como te sientas más cómodo.</p>
+
+    <div class="dress-img"><img src="assets/vestimenta.jpg" alt="Código de vestimenta" loading="lazy"></div>
+
+    <div class="reserved">
+      <p class="rtitle">Colores reservados</p>
+      <div class="ritem"><div class="rdot o"></div><p class="rtxt"><b>Verde olivo</b><br>exclusivo para nuestras damas de honor</p></div>
+      <div class="ritem"><div class="rdot b"></div><p class="rtxt"><b>Blanco</b><br>exclusivo para la novia</p></div>
+      <div class="ritem"><div class="rdot g"></div><p class="rtxt"><b>Gris</b><br>exclusivo para el novio</p></div>
+    </div>
   </div>
+
+  <div class="ph rv zoom"><img src="assets/7.jpg" alt="Evelyn y Elihud" loading="lazy"></div>
 
   <h2 class="shine rv up">MESA DE REGALOS</h2>
   <div class="divider rv up"><i class="fa-solid fa-gift"></i></div>
   <p class="rv up" style="font-size:.95rem;line-height:1.6;margin-bottom:18px">Su presencia es nuestro mejor regalo, pero si desean tener un detalle con nosotros:</p>
   <a class="btn rv up" target="_blank" href="https://mesaderegalos.liverpool.com.mx/" style="background:#E10098;border-color:#E10098;padding:18px"><i class="fa-solid fa-gift"></i> Liverpool (Evento: 60033548)</a>
+  <a class="btn rv up" target="_blank" rel="noopener" href="https://www.amazon.com.mx/wedding/guest-view/2O4ELJQSQR1RS" style="background:#FF9900;border-color:#FF9900;color:#111;padding:18px"><i class="fa-brands fa-amazon"></i> Amazon (Lista de deseos)</a>
   <div class="btn ghost rv up" style="cursor:default;padding:18px"><i class="fa-regular fa-envelope"></i> Lluvia de sobres en el evento</div>
 
-  <h2 class="shine rv up" style="margin-top:46px">GALERÍA EN VIVO</h2>
+  <div class="ph rv zoom" style="margin-top:34px"><img src="assets/8.jpg" alt="Evelyn, Elihud y Regina" loading="lazy"></div>
+
+  <h2 class="shine rv up" style="margin-top:10px">GALERÍA EN VIVO</h2>
   <div class="divider rv up"><i class="fa-solid fa-camera-retro"></i></div>
   <p class="rv up" style="font-size:.95rem;line-height:1.6">¡Queremos ver este día a través de tus ojos! Escanea para compartir tus fotos y videos.</p>
   <img class="qr rv zoom" alt="QR Galería" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F1suNiA98XWhSSUw9fWLlVlPaN0IfeftVR%3Fusp%3Dsharing">
   <a class="btn rv up" target="_blank" href="https://drive.google.com/drive/folders/1suNiA98XWhSSUw9fWLlVlPaN0IfeftVR?usp=sharing"><i class="fa-brands fa-google-drive"></i> Subir mis fotos</a>
 
-  <h2 class="shine rv up" style="margin-top:46px">NUESTRA PLAYLIST</h2>
-  <div class="divider rv up"><i class="fa-brands fa-spotify"></i></div>
-  <p class="rv up" style="font-size:.95rem;line-height:1.6">Escucha la música de nuestra fiesta y agrega las canciones que no pueden faltar.</p>
-  <div class="spot rv up"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4OftIFBfBbHRSJft5qEM1x?utm_source=generator&si=fb03039dda62429e" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
-  <a class="btn olive rv up" target="_blank" href="https://open.spotify.com/playlist/4OftIFBfBbHRSJft5qEM1x?si=f3fd9524920e4081&pt=fffec3d8fe7ceb56cf3ad8d5b9b7b0ad"><i class="fa-brands fa-spotify"></i> Agregar canciones</a>
+  <div class="ph rv zoom" style="margin-top:34px"><img src="assets/9.jpg" alt="Regina" loading="lazy"></div>
+  <div class="ph rv zoom"><img src="assets/10.jpg" alt="Evelyn, Elihud y Regina" loading="lazy"></div>
 
   <!-- RSVP -->
-  <div class="fbox shine-card rv up" style="margin-top:50px">
+  <div class="fbox shine-card rv up" style="margin-top:20px">
     <h2 class="shine">R.S.V.P.</h2>
     <p class="eyebrow" style="margin-bottom:26px">Confirmación de asistencia</p>
     <div id="pase">
